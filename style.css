@@ -1,0 +1,310 @@
+/* ================= ROOT VARIABLES ================= */
+:root{
+    --base-color:#ffffff;
+    --text-color:#222;
+    --primary-color:rgb(232,121,16);
+    --secondary-color:#2563eb;
+
+    --color-1:#f9f6f3;
+    --color-2:#f3f7f9;
+
+    --shadow-soft:0 8px 20px rgba(0,0,0,0.08);
+    --shadow-strong:0 15px 40px rgba(0,0,0,0.15);
+
+    --transition-fast:0.3s ease;
+    --transition-slow:0.6s ease;
+}
+
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    font-family:'Poppins','Segoe UI',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    padding:clamp(1rem,3vw,2rem);
+    background:linear-gradient(to bottom right,#fff,#f5f5f5);
+    color:var(--text-color);
+    transition:background var(--transition-slow),color var(--transition-slow);
+}
+
+/* ================= HERO ================= */
+.hero{
+    min-height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    gap:1.2rem;
+    background:linear-gradient(135deg,var(--color-1),var(--color-2));
+    border-radius:2rem;
+    box-shadow:var(--shadow-soft);
+    animation:fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.hero-title{
+    font-size:clamp(2rem,5vw,3.2rem);
+    color:var(--primary-color);
+}
+
+.hero-subtitle{
+    max-width:600px;
+    font-size:1.1rem;
+    line-height:1.7;
+}
+
+/* ================= HEADINGS ================= */
+h1,h2,h3{
+    font-family:'Montserrat',sans-serif;
+}
+
+/* ================= NAVIGATION ================= */
+nav{
+    width:min(75em,100%);
+    margin:2rem auto;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:clamp(1rem,4vw,2.5rem);
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    font-weight:600;
+    color:var(--secondary-color);
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    bottom:-4px;
+    left:0;
+    width:0;
+    height:3px;
+    background:var(--primary-color);
+    transition:var(--transition-fast);
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* ================= SECTIONS ================= */
+header,section{
+    width:min(75em,100%);
+    margin:3rem auto;
+    padding:clamp(1.5rem,5vw,3rem);
+    background:var(--color-1);
+    border-radius:1.5rem;
+    box-shadow:var(--shadow-soft);
+    transition:background var(--transition-slow),box-shadow var(--transition-slow);
+}
+
+.flex-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2.5rem;
+    align-items:center;
+    justify-content:center; /* center all content */
+}
+
+/* ================= IMAGES ================= */
+img{
+    max-width:100%;
+    border-radius:1rem;
+    object-fit:cover;
+    transition:transform 0.3s ease,box-shadow 0.3s ease;
+    box-shadow:none; /* removed frames/borders */
+}
+
+img:hover{
+    transform:scale(1.03);
+    box-shadow:0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* ================= TEXT ================= */
+p{
+    margin-top:1rem;
+    line-height:1.7;
+    font-size:clamp(0.95rem,1.5vw,1.1rem);
+    color:#444;
+    text-align:center; /* center text in cards or sections */
+}
+
+/* ================= CARDS GRID ================= */
+.lyrics-wrapper, .music-wrapper{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:2.5rem;
+    margin-top:3rem;
+    justify-items:center; /* center card content horizontally */
+}
+
+.lyrics-card, .music-card{
+    min-height:360px;
+    padding:1.8rem;
+    border-radius:20px;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(6px);
+    box-shadow:var(--shadow-soft);
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    outline:none;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center; /* center content */
+    text-align:center;
+    transition:transform 0.3s ease,box-shadow 0.3s ease;
+}
+
+/* Hover / Focus subtle motion */
+.lyrics-card:hover, .music-card:hover,
+.lyrics-card:focus, .music-card:focus{
+    transform:scale(1.03);
+    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* Titles */
+.lyrics-card h2, .music-card h2{
+    font-size:1.2rem;
+    margin-bottom:0.8rem;
+}
+
+/* Expandable text */
+.lyrics-card p, .music-card p{
+    max-height:140px;
+    overflow:hidden;
+    transition:max-height 0.6s ease;
+}
+
+.lyrics-card:hover p, .music-card:hover p{
+    max-height:260px;
+}
+
+.lyrics-card:focus p, .lyrics-card:focus-within p,
+.music-card:focus p, .music-card:focus-within p{
+    max-height:2000px;
+}
+
+/* Arrow indicator */
+.lyrics-card::after, .music-card::after{
+    content:"▼";
+    position:absolute;
+    bottom:14px;
+    right:18px;
+    opacity:0.6;
+    transition:transform 0.4s ease;
+}
+
+.lyrics-card:focus::after, .music-card:focus::after{
+    transform:rotate(180deg);
+}
+
+/* ================= CARD COLORS ================= */
+.card-1{background:#fff2a8;}
+.card-2{background:#d6ebff;}
+.card-3{background:#ffdede;}
+.card-4{background:#ddf7dd;}
+.card-5{background:#d7f4fb;}
+
+/* ================= BUTTON ================= */
+.toggle-btn{
+    background-color:var(--primary-color);
+    color:#fff;
+    font-weight:600;
+    padding:0.6em 1.2em;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.toggle-btn:hover{
+    background:black;
+    transform:scale(1.05);
+}
+
+/* ================= FOOTER ================= */
+footer{
+    text-align:center;
+    margin:3rem 0;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:1.5rem;
+}
+
+footer a{
+    font-weight:600;
+    text-decoration:none;
+    color:var(--secondary-color);
+    transition:color 0.3s ease;
+}
+
+footer a:hover{
+    color:var(--primary-color);
+}
+
+/* ================= DARK MODE ================= */
+body.dark{
+    --text-color:#ffffff;
+    --primary-color:#f59e0b;
+    --secondary-color:#60a5fa;
+    --color-1:rgba(28,35,52,0.92);
+    --shadow-soft:0 10px 25px rgba(0,0,0,0.5);
+    --shadow-strong:0 18px 50px rgba(0,0,0,0.7);
+    background:linear-gradient(to bottom right,#0b0f1e,#141c33);
+}
+
+body.dark p,
+body.dark h1,
+body.dark h2,
+body.dark h3{
+    color:#ffffff;
+}
+
+body.dark .lyrics-card, body.dark .music-card{
+    background:rgba(20,30,50,0.6);
+    backdrop-filter:blur(12px);
+    box-shadow:var(--shadow-soft);
+}
+
+body.dark .lyrics-card:hover, body.dark .music-card:hover{
+    box-shadow:var(--shadow-strong);
+}
+
+/* ================= MOBILE SWIPE MODE ================= */
+@media(max-width:700px){
+    .lyrics-wrapper, .music-wrapper{
+        display:flex;
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;
+        gap:1.5rem;
+        padding-bottom:1rem;
+    }
+
+    .lyrics-card, .music-card{
+        min-width:85%;
+        scroll-snap-align:center;
+        transform:none;
+    }
+}
