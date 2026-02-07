@@ -9,13 +9,17 @@
 <body>
 
 <!-- ================= NAVIGATION ================= -->
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="music.html" class="active">Music</a></li>
-        <li><a href="lyrics.html">Lyrics</a></li>
-    </ul>
-</nav>
+<header class="main-header">
+    <div class="logo">C.Legacy</div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="lyrics.html" class="active-link">Lyrics</a></li>
+        </ul>
+    </nav>
+</header>
+
 
 <!-- ================= HERO / INTRO ================= -->
 <header class="hero">
@@ -24,60 +28,60 @@
         Welcome to the sound of <strong>C.Legacy</strong>.  
         Stream our gospel hip-hop tracks, inspired by faith, purpose, and real life.
     </p>
-    <button class="toggle-btn" onclick="toggleDarkMode()">Dark Mode</button>
 </header>
 
-<!-- ================= SONGS SECTION ================= -->
-<section class="lyrics-wrapper">
+<!-- ================= MUSIC SONGS SECTION ================= -->
+<section class="music-wrapper">
 
     <!-- Song 1 -->
-    <div class="lyrics-card card-1" tabindex="0">
+    <div class="music-card card-1" tabindex="0">
         <h2>Delilah</h2>
         <p>A bold track about resisting temptation and choosing faith over pressure.</p>
-        <audio controls>
+        <audio controls class="audio-player">
             <source src="audio/delilah.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
+        <div class="bouncing-guy"></div>
     </div>
 
     <!-- Song 2 -->
-    <div class="lyrics-card card-2" tabindex="0">
+    <div class="music-card card-2" tabindex="0">
         <h2>Hope</h2>
         <p>An uplifting anthem reminding us that hope is never lost in Christ.</p>
-        <audio controls>
+        <audio controls class="audio-player">
             <source src="audio/hope.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
         </audio>
+        <div class="bouncing-guy"></div>
     </div>
 
     <!-- Song 3 -->
-    <div class="lyrics-card card-3" tabindex="0">
+    <div class="music-card card-3" tabindex="0">
         <h2>Royal Blood</h2>
         <p>A declaration of identity, purpose, and redemption through Jesus.</p>
-        <audio controls>
+        <audio controls class="audio-player">
             <source src="audio/royal-blood.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
         </audio>
+        <div class="bouncing-guy"></div>
     </div>
 
     <!-- Song 4 -->
-    <div class="lyrics-card card-4" tabindex="0">
+    <div class="music-card card-4" tabindex="0">
         <h2>My Life</h2>
         <p>A personal reflection on our journey, struggles, and victories in faith.</p>
-        <audio controls>
+        <audio controls class="audio-player">
             <source src="audio/my-life.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
         </audio>
+        <div class="bouncing-guy"></div>
     </div>
 
     <!-- Song 5 -->
-    <div class="lyrics-card card-5" tabindex="0">
+    <div class="music-card card-5" tabindex="0">
         <h2>HeadShot</h2>
         <p>High-energy beats paired with sharp lyrics that hit straight to the message.</p>
-        <audio controls>
+        <audio controls class="audio-player">
             <source src="audio/headshot.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
         </audio>
+        <div class="bouncing-guy"></div>
     </div>
 
 </section>
@@ -89,11 +93,26 @@
     <a href="mailto:agemoelizabeth07@gmail.com">Contact</a>
 </footer>
 
-<!-- ================= DARK MODE SCRIPT ================= -->
+<!-- ================= DARK MODE & ANIMATION SCRIPT ================= -->
 <script>
     function toggleDarkMode() {
         document.body.classList.toggle("dark");
     }
+
+    // ================= MUSIC PLAY ANIMATION =================
+    const audios = document.querySelectorAll('.audio-player');
+    audios.forEach(audio => {
+        const card = audio.closest('.music-card');
+        audio.addEventListener('play', () => {
+            card.classList.add('playing');
+        });
+        audio.addEventListener('pause', () => {
+            card.classList.remove('playing');
+        });
+        audio.addEventListener('ended', () => {
+            card.classList.remove('playing');
+        });
+    });
 </script>
 
 </body>
