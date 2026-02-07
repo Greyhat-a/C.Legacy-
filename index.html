@@ -3,77 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C.Legacy | Home</title>
+    <title>C.Legacy | Purpose in Sound</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
-<nav>
-    <ul>
-        <li><a href="index.html" class="active">Home</a></li>
+<!-- ================= SITE NAV ================= -->
+<nav class="site-nav">
+    <div class="nav-brand">C.Legacy</div>
+    <ul class="nav-links">
+        <li><a href="index.html" class="current">Home</a></li>
         <li><a href="music.html">Music</a></li>
-        <li><a href="lyrics.html">Song Lyrics</a></li>
+        <li><a href="lyrics.html">Lyrics</a></li>
     </ul>
 </nav>
 
-<!-- ================= HERO SECTION ================= -->
-<header class="hero">
-    <h1 class="hero-title">C.Legacy</h1>
-    <p class="hero-subtitle">
-        Welcome to the official website of <strong>C.Legacy</strong>, a gospel hip-hop crew formed by 12 teens. 
-        We rap for Jesus and share our latest music and content.
-    </p>
-    <button class="toggle-btn" onclick="toggleDarkMode()">Dark Mode</button>
-</header>
+<main>
 
-<!-- ================= ABOUT / INTRO SECTION ================= -->
-<section>
-    <div class="flex-container">
-        <img 
-            src="images/image-2.jpeg" type="image/jpeg"
-        >
-        <div class="text-container">
-            <h2>Who We Are</h2>
+    <!-- ================= OPENING STATEMENT ================= -->
+    <section class="opening">
+        <h1>Purpose in Sound.</h1>
+        <p>
+            This is not noise for attention.  
+            This is faith, rhythm, and truth spoken out loud.
+        </p>
+    </section>
+
+    <!-- ================= SCRIPTURE ANCHOR ================= -->
+    <section class="scripture">
+        <blockquote>
+            “Let everything that has breath praise the Lord.”
+        </blockquote>
+        <span>— Psalm 150:6</span>
+
+        <p>
+            We believe praise does not belong to one sound.  
+            It moves through beats, bars, and voices willing to be used.
+        </p>
+    </section>
+
+    <!-- ================= ORIGIN STORY ================= -->
+    <section class="origin">
+        <div class="origin-text">
+            <h2>How It All Began</h2>
             <p>
-                C.Legacy is a group of passionate gospel artists bringing hip-hop to inspire youth.
-                We update our audience on new releases, events, and community projects.
+                C.Legacy did not begin with a stage or spotlight.  
+                It began with conviction — twelve young voices, one belief, and a desire
+                to speak life where silence had settled.
+            </p>
+            <p>
+                From shared verses to shared purpose, what started as expression
+                slowly grew into responsibility: to represent faith honestly,
+                boldly, and without compromise.
             </p>
         </div>
-    </div>
-</section>
 
-<!-- ================= FEATURE / PROGRESS SECTION ================= -->
-<section>
-    <div class="flex-container">
-        <div class="text-container">
-            <h2>How We Can Help You</h2>
+        <div class="origin-image">
+              <img src="images/image-2.jpeg" type="image/jpeg">
+        </div>
+    </section>
+
+    <!-- ================= MISSION & VISION ================= -->
+    <section class="direction">
+        <article class="mission">
+            <h3>Our Mission</h3>
             <p>
-                We brief our audience on progress made so far and upcoming events. 
-                Stay updated with our latest music releases and projects.
+                To use gospel hip-hop as a tool for inspiration,
+                delivering messages of hope, discipline, and belief
+                to a generation searching for meaning.
             </p>
+        </article>
+
+        <article class="vision">
+            <h3>Our Vision</h3>
+            <p>
+                To build a legacy where faith and creativity coexist —
+                influencing youth culture without losing spiritual grounding.
+            </p>
+        </article>
+    </section>
+
+    <!-- ================= CORE VALUES ================= -->
+    <section class="values">
+        <h2>What We Stand For</h2>
+        <ul>
+            <li>Faith before fame</li>
+            <li>Message over metrics</li>
+            <li>Youth led, purpose driven</li>
+            <li>Discipline in creativity</li>
+        </ul>
+    </section>
+
+    <!-- ================= IMPACT ================= -->
+    <section class="impact">
+        <div class="impact-image">
+            <img src="images/image-1.jpeg" alt="C.Legacy impact">
         </div>
 
-        <img 
-            src="images/image-1.jpeg" type="image/jpeg"
-        >
-    </div>
-</section>
+        <div class="impact-text">
+            <h2>Impact So Far</h2>
+            <p>
+                Through music releases, performances, and online engagement,
+                C.Legacy continues to grow beyond numbers — reaching hearts,
+                conversations, and communities.
+            </p>
+            <p>
+                Each step forward is a reminder that purpose multiplies
+                when shared.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= CALL TO ACTION ================= -->
+    <section class="invite">
+        <h2>Join the Journey</h2>
+        <p>
+            Listen with intention.  
+            Read the message behind the music.  
+            Walk the journey with us.
+        </p>
+
+        <div class="invite-links">
+            <a href="music.html">Explore Music</a>
+            <a href="lyrics.html">Read Lyrics</a>
+        </div>
+    </section>
+
+</main>
 
 <!-- ================= FOOTER ================= -->
-<footer>
-    <a href="https://www.youtube.com/@4JESUS-w6j">YouTube</a>
-    <a href="https://www.tiktok.com/@c.legacy_ug">TikTok</a>
-    <a href="mailto:agemoelizabeth07@gmail.com">Contact</a>
+<footer class="site-footer">
+    <p>Connect with C.Legacy</p>
+    <div class="footer-links">
+        <a href="https://www.youtube.com/@4JESUS-w6j">YouTube</a>
+        <a href="https://www.tiktok.com/@c.legacy_ug">TikTok</a>
+        <a href="mailto:agemoelizabeth07@gmail.com">Contact</a>
+    </div>
 </footer>
-
-<!-- ================= DARK MODE SCRIPT ================= -->
-<script>
-    function toggleDarkMode(){
-        document.body.classList.toggle("dark");
-    }
-</script>
 
 </body>
 </html>
