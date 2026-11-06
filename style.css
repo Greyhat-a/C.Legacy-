@@ -763,6 +763,206 @@ footer,
     }
 }
 
+/* ================= MUSIC INTERACTIONS ================= */
+.music-wrapper {
+    width: min(1280px, calc(100% - 32px));
+    max-width: none;
+    padding: 2rem 0 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.music-card {
+    min-width: 0;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    overflow: hidden;
+}
+
+.music-card h2 {
+    margin-bottom: .6rem;
+    font-size: 1.65rem;
+}
+
+.music-card p {
+    color: var(--text-dim);
+}
+
+.track-visualizer {
+    display: flex;
+    height: 42px;
+    align-items: center;
+    gap: 5px;
+    margin-top: 1.25rem;
+    color: var(--accent);
+}
+
+.track-visualizer span {
+    width: 5px;
+    height: 8px;
+    border-radius: 4px;
+    background: currentColor;
+    opacity: .45;
+    transform-origin: center;
+}
+
+.playing .track-visualizer span {
+    opacity: 1;
+}
+
+.playing .track-visualizer--delilah span {
+    animation: visualizer-wave .5s ease-in-out infinite alternate;
+}
+
+.track-visualizer--delilah span:nth-child(2n) { animation-delay: -.25s; }
+.track-visualizer--delilah span:nth-child(3n) { animation-delay: -.4s; }
+
+.playing .track-visualizer--hope span {
+    animation: visualizer-breathe 1.2s ease-in-out infinite;
+}
+
+.track-visualizer--hope span:nth-child(2n) { animation-delay: -.6s; }
+
+.playing .track-visualizer--royal span {
+    border-radius: 50%;
+    animation: visualizer-orbit 1.5s ease-in-out infinite alternate;
+}
+
+.track-visualizer--royal span:nth-child(2n) { animation-delay: -.75s; }
+
+.playing .track-visualizer--life span {
+    animation: visualizer-sway .65s ease-in-out infinite alternate;
+}
+
+.track-visualizer--life span:nth-child(2n) { animation-delay: -.32s; }
+
+.playing .track-visualizer--headshot span {
+    animation: visualizer-hit .3s steps(2, end) infinite;
+}
+
+.track-visualizer--headshot span:nth-child(3n) { animation-delay: -.15s; }
+
+@keyframes visualizer-wave {
+    to { transform: scaleY(3.2); }
+}
+
+@keyframes visualizer-breathe {
+    50% { transform: scaleY(2.5); }
+}
+
+@keyframes visualizer-orbit {
+    to { transform: translateY(-12px) scale(1.5); }
+}
+
+@keyframes visualizer-sway {
+    to { transform: rotate(35deg) scaleY(2.5); }
+}
+
+@keyframes visualizer-hit {
+    50% { transform: scaleY(3) translateX(2px); }
+}
+
+.track-activity {
+    display: grid;
+    gap: .75rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.like-button,
+.comment-form button {
+    min-height: 40px;
+    padding: .5rem .85rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--text-primary);
+    font: inherit;
+    font-size: .85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.like-button {
+    justify-self: start;
+}
+
+.like-button span:first-child {
+    color: var(--brand-alt);
+}
+
+.like-button[aria-pressed="true"] {
+    border-color: var(--brand-alt);
+    background: rgba(255, 77, 77, .12);
+}
+
+.comment-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: .5rem;
+}
+
+.comment-form input {
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+    padding: .5rem .7rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, .28);
+    color: var(--text-primary);
+    font: inherit;
+}
+
+.comment-form input::placeholder {
+    color: var(--text-dim);
+}
+
+.comment-form button {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #000;
+}
+
+.like-button:focus-visible,
+.comment-form input:focus-visible,
+.comment-form button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.comment-list {
+    display: grid;
+    gap: .4rem;
+    max-height: 160px;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.comment-list li {
+    overflow-wrap: anywhere;
+    padding: .45rem .6rem;
+    border-left: 2px solid var(--accent);
+    background: rgba(255, 255, 255, .035);
+    color: var(--text-dim);
+    font-size: .85rem;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .playing .track-visualizer span {
+        animation: none;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .opening-wave span {
         animation: none;
