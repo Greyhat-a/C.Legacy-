@@ -47,7 +47,6 @@ a:hover,
 }
 
 /* ================= FLOATING GLASS NAV ================= */
-nav,
 .site-nav,
 .main-header {
     position: fixed;
@@ -262,8 +261,8 @@ footer,
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-    nav,
-    .site-nav {
+    .site-nav,
+    .main-header {
         flex-direction: column;
         gap: 15px;
         border-radius: 20px;
